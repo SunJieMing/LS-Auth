@@ -17,6 +17,7 @@
 * JWT
 * token-based authentication
 * stateless authentication
+* JWT secret
 
 ## Assignment
 
