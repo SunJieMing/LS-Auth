@@ -1,10 +1,12 @@
-const requireSignIn = require('../services/passport').requireSignIn;
-const getTokenForUser = require('../services/token');
+const signUp = (req, res) => {
+  // create a new user and return a valid JWT token to the client
+};
 
 const signIn = (req, res) => {
-  res.send({ token: getTokenForUser(req.user) });
+  // generate a JWT token if the username/password is valid
 };
 
 module.exports = (app) => {
-  app.post('/signin', requireSignIn, signIn);
+  app.post('/signup', signUp);
+  app.post('/signin', signIn);
 };
