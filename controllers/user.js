@@ -1,12 +1,10 @@
-const models = require('../models');
-const jwt = require('jwt-simple');
-const config = require('../config');
+const { User } = require('../models');
 const requireAuth = require('../services/passport').requireAuth;
 const getTokenForUser = require('../services/token');
 
 
 const createUser = (req, res) => {
-  const user = new models.User(req.body);
+  const user = new User(req.body);
   user.save((err, user) => {
     if (err) return res.send(err);
     res.send({
@@ -16,7 +14,7 @@ const createUser = (req, res) => {
 };
 
 const getUsers = (req, res) => {
-  models.User.find({}, (err, users) => {
+  User.find({}, (err, users) => {
     if (err) return res.send(err);
     res.send(users);
   });
